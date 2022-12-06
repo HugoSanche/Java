@@ -8,9 +8,20 @@ public class MathOperations {
 
         double testScore=6.7;
         double bonusMark=2.5;
+
+        int passegers=0;
         System.out.println("Fred and George collected " +(bagsOfSweet+bagsOfSweet2)+ " sweets");
         System.out.println("There are "+(starsInMilkyWay+starsInAndromeda)+" stars in the Milky Way and Andromeda galaxies.");
         System.out.println("With bonus marks, Ron scored "+(testScore+bonusMark)+"/10 on his potions test. Snape wasn't too thrilled");
+        
+        passegers++; //increse by one
+        passegers++;
+        passegers++;
+        System.out.println(passegers);
+
+        passegers+=2; //increrse the values for the number on the right
+        passegers+=2;
+        System.out.println(passegers);
     }
 }
 
