@@ -1,4 +1,4 @@
-25import java.util.Scanner;
+import java.util.Scanner;
 
 public class Delimeters {
     public static void main(String[] Args){
