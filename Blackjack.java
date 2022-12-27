@@ -2,10 +2,13 @@ import java.util.Scanner;
 
 public class Blackjack {
 
-    public static Scanner scan = new Scanner(System.in);
+    public static Scanner scan=new Scanner(System.in);
+
 
     public static void main(String[] args) {
-        Scanner scan=new Scanner(System.in);
+        
+
+        int total=0;
         System.out.println("\nWelcome to Java Casino!");
         System.out.println("Do you have a knack for Black Jack?");
         System.out.println("We shall see..");
@@ -20,18 +23,22 @@ public class Blackjack {
 
         int userCard1=drawRandomCard();
         int userCard2=drawRandomCard();
-        System.out.println("\n You get a \n" + userCard1 + "\n and a \n" + userCard2);
+        //System.out.println("\n "+userCard1+" "+userCard2);
+        total=Math.min(userCard1, 10)+Math.min(userCard2,10);
+
+        System.out.println("\n You get a \n" + cardString(userCard1) + "\n and a \n" + cardString(userCard2));
 
         //Task 5 – Print the sum of your hand value.
         //       – print: your total is: <hand value>
-        System.out.println("your total is: "+userCard1+userCard2);
+        System.out.println("\nyour total is: "+(total));
         
         //Task 6 – Get two random cards for the dealer.
         //       – Print: The dealer shows \n" + <first card> + "\nand has a card facing down \n" + <facedown card>
         //       – Print: \nThe dealer's total is hidden
         int dealerCard1=drawRandomCard();
         int dealerCard2=drawRandomCard();
-        System.out.println("The dealer shows \n" + dealerCard1 + "\nand has a card facing down \n");
+       System.out.println("\nThe dealer shows\n" + cardString(dealerCard1) + "\nand has a card facing down\n"+faceDown());
+       int totalDealer=Math.min(dealerCard1, 10)+Math.min(dealerCard2, 10);
        System.out.println("\nThe dealer's total is hidden");
 
         //Task 8 – Keep asking the player to hit or stay (while loop).
@@ -42,9 +49,49 @@ public class Blackjack {
         //             - print: your new total is <total>
 
         //       2. Once the player stays, break the loop. 
+        String option ="";
+        while (true){
+            option =hitOrStay();
+            if (option.equalsIgnoreCase("stay"))
+            {
+                break;
+            }
+            int card =drawRandomCard();
+            total+=Math.min(card, 10);
+            System.out.println("\n You get a\n"+cardString(card));
+            System.out.println("your new total is "+total);
+            if (total>21){
+                System.out.println("Bust! Player loses");
+                System.exit(0);
+            }
 
-        
-        //For tasks 9 to 13, see the article: Blackjack Part II. 
+        }
+          //For tasks 9 to 13, see the article: Blackjack Part II. 
+        System.out.println("\n Dealer's turn");
+        System.out.println("\nThe dealer cards are\n" + cardString(dealerCard1) + "\nand has a card facing down\n"+ cardString(dealerCard2));
+        int dealerCard=drawRandomCard();
+        System.out.println("\nDealer gets a\n" + cardString(dealerCard));
+        totalDealer+=Math.min(dealerCard, 10);
+        System.out.println("Dealer's total is "+totalDealer);
+        while (totalDealer<17){
+            int newCard=drawRandomCard();
+            System.out.println("\nDealer gets a\n" + cardString(newCard));
+            totalDealer+=Math.min(newCard, 10);
+            System.out.println("Dealer's total is "+totalDealer);
+        }
+
+        if (totalDealer>21){
+            System.out.println("Bust! Dealer loses");
+            System.exit(0);
+        }
+        if (total>totalDealer){
+            System.out.println("Player wins!");
+            System.exit(0);
+        }else {
+            System.out.println("Dealer wins!");
+            System.exit(0);
+        }
+
          scan.close();
 
     }
@@ -86,7 +133,7 @@ public class Blackjack {
             break;
             
             case 2:
-                                 card=  "   ______\n"+              
+                                 card=  "   _____\n"+              
                                         "  |2    |\n"+ 
                                         "  |  o  |\n"+
                                         "  |     |\n"+
@@ -122,7 +169,7 @@ public class Blackjack {
             break;
 
             case 6:
-                                 card= "   _____ \n" +
+                                 card=  "   _____ \n" +
                                         "  |6    |\n" +
                                         "  | o o |\n" +
                                         "  | o o |\n" +
@@ -131,7 +178,7 @@ public class Blackjack {
 
             break;
             case 7:
-                                  card="   _____ \n" +
+                                  card= "   _____\n" +
                                         "  |7    |\n" +
                                         "  | o o |\n" +
                                         "  |o o o|\n" +
@@ -140,7 +187,7 @@ public class Blackjack {
             break;
 
             case 8:
-                                  card="   _____ \n" +
+                                  card= "   _____ \n" +
                                         "  |8    |\n" +
                                         "  |o o o|\n" +
                                         "  | o o |\n" +
@@ -170,7 +217,7 @@ public class Blackjack {
             break;
             
             case 11:
-                                  card= "   ______\n" +
+                                  card= "   _____\n" +
                                         "  |J  ww|\n"+ 
                                         "  | o {)|\n"+ 
                                         "  |o o% |\n"+ 
@@ -179,7 +226,7 @@ public class Blackjack {
             break;
             
             case 12:
-                                  card="   ______\n" +
+                                  card= "   _____\n" +
                                         "  |Q  ww|\n"+ 
                                         "  | o {(|\n"+ 
                                         "  |o o%%|\n"+ 
@@ -188,7 +235,7 @@ public class Blackjack {
             break;
 
             case 13:
-                                  card= "   ______\n" +
+                                  card= "   _____\n" +
                                         "  |K  WW|\n"+ 
                                         "  | o {)|\n"+ 
                                         "  |o o%%|\n"+ 
@@ -224,9 +271,9 @@ public class Blackjack {
      */
     
     public static String hitOrStay(){
-        System.out.println("Choose hit or stay"); 
+       System.out.println("Choose hit or stay"); 
         String option=scan.nextLine();
-        while(!option.equals("hit") || !option.equals("stay")){
+        while(!(option.equalsIgnoreCase("hit") || option.equalsIgnoreCase("stay"))){
             System.out.println("Please write 'hit' or 'stay'");
             option=scan.nextLine();
         }   
