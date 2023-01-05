@@ -32,6 +32,7 @@ public class TicTacToe {
                       }
                       else if (res==-3){
                         System.out.println("O wins");
+                        break;
                       }
                   }
                 /*
@@ -90,54 +91,62 @@ public static int checkWin (char[][] array){
   //Column 0
  
   int x=0;
-  int o=0;
+  int y0=0;
+  int y1=0;
+  int y2=0;
+
   for (int i=0; i<array.length; i++){
   
     for (int j=0; j<array.length; j++){
       if (array[i][j]=='X')
       {
-         x=+1;
+         x++;
       }
       if (array[i][j]=='O')
       {
-        o=+1;
+        x--;
       }
+
+      //0 X
+      if (array[i][0]=='X'){
+        y0++;
+        System.out.println(" uno ");
+      }
+      //0 O
+      if (array[i][0]=='O'){
+        y0--;
+      }
+
+       //1 X
+       if (array[i][1]=='X'){
+        y1++;
+      }
+      //1 O
+      if (array[i][1]=='O'){
+        y1--;
+      }
+
+      //2 X
+      if (array[i][2]=='X'){
+        y2++;
+      }
+      //2 O
+      if (array[i][2]=='O'){
+        y2--;
+      }    
+
     }
-    if (x==3){
+    if (x==3 || y0==3 || y1==3 || y2==3){
       count= 3;
+      System.out.println("Error x "+x +" y0 "+y0 +" y1 "+y1+" y2 "+y2);
     }
-    else if (o==3){
+    else if (x==-3 || y0==-3 || y1==-3 || y2==-3){
       count= -3;
     }
- 
     x=0;
-    o=0;
   }
   return count;
 }
 }
-/* 
-  if (array[0][0]==('X') && array[0][1]==('X') && array[0][2]==('X')){
-    System.out.println("X wins");
-  }
-  if (array[0][0]==('O') && array[0][1]==('O') && array[0][2]==('O')){
-    System.out.println("O wins");
-  }
- //Column 1
- if (array[1][0]==('X') && array[1][1]==('X') && array[1][2]==('X')){
-  System.out.println("X wins");
-}
-if (array[1][0]==('O') && array[1][1]==('O') && array[1][2]==('O')){
-  System.out.println("O wins");
-}
- //Column 2
- if (array[2][0]==('X') && array[2][1]==('X') && array[2][2]==('X')){
-  System.out.println("X wins");
-}
-if (array[2][0]==('O') && array[2][1]==('O') && array[2][2]==('O')){
-  System.out.println("O wins");
-}
-return count;
-}
-*/
+
 
