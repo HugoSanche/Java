@@ -15,7 +15,6 @@ public class TicTacToe {
                       System.out.println("Turn X: ");
                      int[] spot= askUser(ticTac);
                      ticTac[spot[0]][spot[1]]='X';
-                     
                     }
                     else{
                       System.out.println("Turn O: ");
@@ -34,17 +33,11 @@ public class TicTacToe {
                         System.out.println("O wins");
                         break;
                       }
+                      else if (i==8){
+                        System.out.println("Its a tie!");
+                      }
                   }
-                /*
-                Task 6 - Call the function.
-                   if return value == 3 {
-                     print: X wins and break the loop
-                  } else if return value == -3 {
-                     print: O wins and break the loop
-                  }
-
-              } 
-              */
+  
              
             scan.close();
         }
@@ -87,17 +80,11 @@ return new int[]{resRow,rescolumn};
      *   5. Check the right diagonal for a straight X or straight O (Task 10).
      */
 public static int checkWin (char[][] array){
-  int count=0;
-  //Column 0
- 
-  int x=0;
-  int y0=0;
-  int y1=0;
-  int y2=0;
-
-  for (int i=0; i<array.length; i++){
   
-    for (int j=0; j<array.length; j++){
+  int x=0;
+//check horizontal winner
+  for (int i=0; i<array.length; i++){  
+    for (int j=0; j<array[i].length; j++){
       if (array[i][j]=='X')
       {
          x++;
@@ -106,46 +93,71 @@ public static int checkWin (char[][] array){
       {
         x--;
       }
-
-      //0 X
-      if (array[i][0]=='X'){
-        y0++;
-        System.out.println(" uno ");
-      }
-      //0 O
-      if (array[i][0]=='O'){
-        y0--;
-      }
-
-       //1 X
-       if (array[i][1]=='X'){
-        y1++;
-      }
-      //1 O
-      if (array[i][1]=='O'){
-        y1--;
-      }
-
-      //2 X
-      if (array[i][2]=='X'){
-        y2++;
-      }
-      //2 O
-      if (array[i][2]=='O'){
-        y2--;
-      }    
-
     }
-    if (x==3 || y0==3 || y1==3 || y2==3){
-      count= 3;
-      System.out.println("Error x "+x +" y0 "+y0 +" y1 "+y1+" y2 "+y2);
+    if (x==3 || x==-3){
+      return x;
     }
-    else if (x==-3 || y0==-3 || y1==-3 || y2==-3){
-      count= -3;
+    else {
+      x=0;
     }
-    x=0;
   }
-  return count;
+x=0;
+//check diagonal winner
+  for (int i=0; i<array.length; i++){
+    for (int j=0; j<array[i].length; j++){
+      if (array[j][i]=='X')
+      {
+         x++;
+      }
+      if (array[j][i]=='O')
+      {
+        x--;
+      }
+    }
+    if (x==3 || x==-3){
+      return x;
+    }
+    else {
+      x=0;
+    }
+  }
+  x=0;
+  //check diagonal left diagonal 
+  for (int i=0; i<array.length; i++){
+        //System.out.println(" Diagonal i "+i+" j "+ j);
+        if (array[i][i]=='X')
+        {
+          x++;
+        }
+        if (array[i][i]=='O')
+        {
+          x--;
+        }
+  }
+  if (x==3 || x==-3){ 
+    return x;
+  } 
+x=0;
+
+//check rigth diagonal winner
+for (int i=0; i<array.length; i++){
+
+    if (array[i][2-i]=='X')
+    {
+       x++;
+    }
+    if (array[i][2-i]=='O')
+    {
+      x--;
+    }
+}
+if (x==3 || x==-3){
+  return x;
+}
+else {
+  x=0;
+}
+  return x;
 }
 }
 
