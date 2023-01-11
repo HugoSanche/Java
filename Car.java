@@ -1,14 +1,39 @@
+import java.util.Arrays;
+
 class Car{
    private String make;
    private double price;
    private int year;
    private String color;
-public Car(String make,double price,int year,String color){
-    this.make=make;
-    this.price=price;
-    this.year=year;
-    this.color=color;
-}
+   private String[] spareParts;
+
+
+    public Car(String make, double price, int year, String color, String[] spareParts) {
+        this.make = make;
+        this.price = price;
+        this.year = year;
+        this.color = color;
+        this.spareParts = Arrays.copyOf(spareParts, spareParts.length);
+    }
+
+    public String[] getSpareParts() {
+        return Arrays.copyOf(this.spareParts, this.spareParts.length);
+    }
+
+    public void setSpareParts(String[] spareParts) {
+      Arrays.copyOf(this.spareParts, this.spareParts.length);
+    }
+
+    @Override
+    public String toString() {
+        return "Make: " + this.make + ".\n" 
+            +  "Price: " + this.price + ".\n"
+            +  "Year: " + this.year + ".\n"
+            +  "Color: " + this.color + ".\n"
+            +  "Parts: " + Arrays.toString(spareParts) + ".\n";
+
+    }
+
 
 //copy constructor
 public Car(Car source){
