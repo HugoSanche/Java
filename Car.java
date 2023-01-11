@@ -9,6 +9,14 @@ public Car(String make,double price,int year,String color){
     this.year=year;
     this.color=color;
 }
+
+//copy constructor
+public Car(Car source){
+    this.make=source.make;
+    this.price=source.price;
+    this.year=source.year;
+    this.color=source.color;
+}
 public String getMake(){
     return make;
 }
@@ -35,5 +43,10 @@ public String getColor(){
 }
 public void setColor(String color){
     this.color=color;
+}
+
+public void drive(){
+    System.out.println("You bought the beatiful "+this.year+" "+this.color+" "+this.make+" for "+ this.price);
+    System.out.println("Please start your engine and go home");
 }
 }
