@@ -1,49 +1,48 @@
-class Movie{
+public class Movie {
+
     private String name;
     private String format;
     private double rating;
-
-
 
     public Movie(String name, String format, double rating) {
         this.name = name;
         this.format = format;
         this.rating = rating;
-    }
-    public Movie(Movie sources){
-        this.name=sources.name;
-        this.format=sources.format;
-        this.rating=sources.rating;
-    }
-    @Override
-    public String toString(){
-        return "Name: "+this.name+"\n"+
-               "Format: +"+this.format+"\n"+
-               "Rating:  "+this.rating;
+    }    
+
+
+    public Movie(Movie source) {
+        this.name = source.name;
+        this.format = source.format;
+        this.rating = source.rating;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
-
+    
     public String getFormat() {
-        return this.format;
+        return format;
+    }
+
+    public double getRating() {
+        return rating;
     }
 
     public void setFormat(String format) {
         this.format = format;
     }
 
-    public double getRating() {
-        return this.rating;
-    }
-
     public void setRating(double rating) {
         this.rating = rating;
     }
+
+    public String toString() {
+        return this.rating + "\t" + this.format + "\t\t" + this.name + "";
+    }    
 
 }
