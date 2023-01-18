@@ -1,15 +1,24 @@
 public class Main {
-    public static void main(String[] Args){
-        Car[] cars = new Car[] {
-            new Car("Nissan", 5000, 2020, "red", new String[] {"tires", "keys"}),
-            new Car("Dodge", 8500, 2019, "blue", new String[] {"tires", "keys"}),
-            new Car("Nissan", 5000, 2017, "yellow", new String[] {"tires", "filter"}),
-            new Car("Honda", 7000, 2019, "orange", new String[] {"tires", "filter"}),
-            new Car("Mercedes", 12000, 2015, "jet black", new String[] {"tires", "filter", "transmission"})
-        };
-        Dealership dealerShip=new Dealership(cars);
+    public static void main(String[] args) {
 
-        cars[0].setColor("Green");
+        // **************** Immutable Object ****************
+        Integer applesWrapper = 5;
+
+        Integer applesWrapper2 = applesWrapper;     // SAFE
+        applesWrapper2 = 10;
+
+        System.out.println(applesWrapper);
+        System.out.println(applesWrapper2);
+
+        // **************** Mutable Object ****************
+        
+        City city = new City("Paris", 2161000);
+       // City secondCity = city;            // DANGEROUS
+        City secondCity=new City(city);  //NOT DANGEROUS i used copy constructor
+        city.setPopulation(2261000);
+        secondCity.setPopulation(2263400);
+        city.setPopulation(2163400);
+        secondCity.setPopulation(2443400);
+        
     }
-    
 }
