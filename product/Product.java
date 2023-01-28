@@ -1,11 +1,17 @@
 package product;
 
-public class Product {
+public abstract class Product {
 
     //this variables shoud used in the class price and shirt
     private double price;
     private String color;
     private String brand;
+
+    public Product(double price, String color, String brand) {
+        this.price = price;
+        this.color = color;
+        this.brand = brand;
+    }
 
 
     public double getPrice() {
@@ -35,4 +41,5 @@ public class Product {
     public void fold(){
         System.out.println("\nFolding my "+this.getBrand()+" "+this.getClass().getSimpleName());
     }
+    public abstract void wear();
 }
