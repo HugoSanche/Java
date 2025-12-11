@@ -1,0 +1,23 @@
+public class Dog {
+    final String name;
+
+    public Dog(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public final boolean equals(Object obj) {
+        if (this== obj){
+            return  true;
+        }
+        if (obj instanceof Dog){
+            String nameObj= ((Dog) obj).getName();
+            return this.getName().equals(nameObj);
+        }
+        return false;
+    }
+}

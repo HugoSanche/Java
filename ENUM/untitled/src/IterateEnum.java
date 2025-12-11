@@ -1,0 +1,3 @@
+public enum IterateEnum {
+    LUNES,MARTES,MIERCOLES,JUEVES,VIERNES,SABADO,DOMINGO
+}

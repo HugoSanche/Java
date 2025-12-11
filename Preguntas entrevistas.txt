@@ -1,0 +1,78 @@
+Que orms conoces
+ouc o inversion de control
+diferentes formas de inyectar dependencias
+grade vs maven.- ventajas desventajas
+
+microservicios ventajs y desventajas
+
+como conectar micropservicos
+como se comunican
+
+objetos inmutables
+como implementar un hilo desde 0
+java funcional 
+lambda-stream
+FILTER
+MAP
+REDUCE
+
+continuos integrecion 
+continuos delivery
+git
+
+diferentes estados de un BEAN
+como se puede declarar un bean
+
+scopes de un bean
+como los cambias y las diferencias entre cada uno de ellos
+
+
+que es un hashset y un linked list
+
+bunas y malas practicas de una clase
+
+spring boot.-
+prometeous
+grafana
+
+
+diferentes anotaciones de spring
+
+como crear los diferentes ambientes
+
+patrones de diseño
+patrones arquitectonicos
+
+anotaciones custom
+
+tipos de testing
+
+solid
+
+
+service discovery
+cache
+redis
+trasacyion logs
+
+manejo de excepcione3s
+
+garbaje collector
+
+
+multriteading
+
+sobre carga de metodos
+
+que es una colleccion y ejemplos
+
+
+
+¿Cómo te aseguras de que tu código sea mantenible y escalable? 
+¿Cómo resolverías un problema de rendimiento en una aplicación Java? 
+
+¿Podrías explicar el concepto de concurrencia en Java? 
+
+
+
+

@@ -1,2 +1,3 @@
-package PACKAGE_NAME;public class OtherClass {
+public class OtherClass  implements Interface{
+
 }

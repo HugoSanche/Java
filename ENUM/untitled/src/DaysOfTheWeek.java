@@ -1,2 +1,3 @@
-package PACKAGE_NAME;public enum DaysOfTheWeek {
-}
+public enum DaysOfTheWeek
+    {SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY}
+
