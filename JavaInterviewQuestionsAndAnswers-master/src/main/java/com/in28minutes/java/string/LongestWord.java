@@ -13,7 +13,8 @@ public final class  LongestWord {
             throw new IllegalArgumentException("El string es null o vacio");
         }
 
-        String []arrayStr=str.split(" ");
+        //quita muchos espacios entre caracteres
+        String []arrayStr=str.trim().split("\\s+");
         String longestWord=arrayStr[0];
       for(String word: arrayStr){
           if (word.length()>longestWord.length()){
